@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div style="text-align: center;">
+		<img id="video" src="anh-background-dep-nhat_110341130.jpg" style="width: 200px;height: 200px;">
+		<video id="video" width="640" height="480" autoplay></video>
+	</div>
+	
+	<button id="snap">Snap Photo</button>
+	<div style="text-align: center;">
+		<canvas id="canvas" width="200" height="200"></canvas>
+	</div>
+
+   <script type="text/javascript">
+   var video = document.getElementById('video');
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+// Get access to the camera!
+/*if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+}*/
+document.getElementById("snap").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 200, 200);
+});
+   </script>
+</body>
+</html>
